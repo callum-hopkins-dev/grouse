@@ -1,0 +1,3 @@
+[workspace]
+members = ["packages/grouse", "packages/grouse-macros"]
+resolver = "3"
