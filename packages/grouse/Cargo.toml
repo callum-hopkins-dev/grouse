@@ -12,4 +12,8 @@ keywords = [ "web", "proc-macro", "hash", "file", "assets" ]
 categories = [ "web-programming", "filesystem" ]
 
 [dependencies]
-grouse-macros = { version = "0.1.0", path = "../grouse-macros" }
+grouse-macros = { version = "0.1.0", path = "../grouse-macros", optional = true }
+
+[features]
+default = ["macros"]
+macros = ["dep:grouse-macros"]

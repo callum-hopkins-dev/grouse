@@ -47,6 +47,7 @@
 //! }
 //! ```
 
+#[cfg(feature = "macros")]
 pub use grouse_macros::{digest, include};
 
 /// A flat, hashmap-like container for all of the files included using
