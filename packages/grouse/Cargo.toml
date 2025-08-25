@@ -1,7 +1,7 @@
 [package]
 name = "grouse"
 description = "A simple asset bundler for Rust."
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 authors = [ "Callum Hopkins" ]
 license = "MIT"
@@ -12,7 +12,7 @@ keywords = [ "web", "proc-macro", "hash", "file", "assets" ]
 categories = [ "web-programming", "filesystem" ]
 
 [dependencies]
-grouse-macros = { version = "0.1.0", path = "../grouse-macros", optional = true }
+grouse-macros = { version = "0.1.1", path = "../grouse-macros", optional = true }
 
 [features]
 default = ["macros"]
