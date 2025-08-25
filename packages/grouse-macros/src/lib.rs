@@ -37,11 +37,16 @@ pub fn include(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
 
                 let digest = x.digest().to_hex();
 
+                let mime = mime_guess::from_path(x.path())
+                    .first_or_octet_stream()
+                    .to_string();
+
                 quote! {
                     #CrateIdent::File {
                         bytes: ::core::include_bytes!(#path),
                         name: #name,
                         digest: #digest,
+                        mime: #mime,
                     }
                 }
             });

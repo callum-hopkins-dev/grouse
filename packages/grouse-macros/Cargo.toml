@@ -15,6 +15,7 @@ categories = [ "web-programming", "filesystem" ]
 proc-macro = true
 
 [dependencies]
+mime_guess = "2.0.5"
 proc-macro-crate = "3.3.0"
 proc-macro2 = "1.0.95"
 quote = "1.0.40"

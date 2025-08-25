@@ -126,6 +126,9 @@ pub struct File<'a> {
 
     #[doc(hidden)]
     pub digest: &'a str,
+
+    #[doc(hidden)]
+    pub mime: &'a str,
 }
 
 impl<'a> File<'a> {
@@ -150,5 +153,15 @@ impl<'a> File<'a> {
     #[inline]
     pub const fn digest(&self) -> &'a str {
         self.digest
+    }
+
+    /// A best-effort guess of the mime type of this file.
+    /// ## remarks
+    ///
+    /// If multiple files in the included directory had the same digest, then
+    /// this mime could be any one of those.
+    #[inline]
+    pub const fn mime(&self) -> &'a str {
+        self.mime
     }
 }
