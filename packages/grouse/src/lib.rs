@@ -65,7 +65,7 @@ pub use grouse_macros::{digest, include};
 /// [`grouse::include!`] macro, however, they are considered a private API for the
 /// most part. Therefore, it is highly discouraged to directly access these fields
 /// and their name must not be relied upon across versions.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, Copy, Eq, Hash)]
 pub struct Manifest<'a> {
     #[doc(hidden)]
     pub files: &'a [File<'a>],
@@ -106,6 +106,27 @@ impl<'a> IntoIterator for Manifest<'a> {
     #[inline]
     fn into_iter(self) -> Self::IntoIter {
         self.files.iter()
+    }
+}
+
+impl<'a> PartialEq for Manifest<'a> {
+    #[inline]
+    fn eq(&self, other: &Self) -> bool {
+        self.files.eq(other.files)
+    }
+}
+
+impl<'a> PartialOrd for Manifest<'a> {
+    #[inline]
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        self.files.partial_cmp(other.files)
+    }
+}
+
+impl<'a> Ord for Manifest<'a> {
+    #[inline]
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.files.cmp(other.files)
     }
 }
 
