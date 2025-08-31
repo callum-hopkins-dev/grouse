@@ -65,7 +65,7 @@ pub struct Manifest(HashSet<Entry>);
 
 impl Manifest {
     #[inline]
-    pub fn entries(&self) -> Iter<Entry> {
+    pub fn entries(&self) -> Iter<'_, Entry> {
         self.0.iter()
     }
 }
